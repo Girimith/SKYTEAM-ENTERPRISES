@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="100%" height="100%">
+  <defs>
+    <radialGradient id="meshGrad" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#f0f2f5" />
+      <stop offset="90%" stop-color="#dde1e7" />
+      <stop offset="100%" stop-color="#c8cdd6" />
+    </radialGradient>
+    <linearGradient id="meshBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c5cbd4" />
+      <stop offset="100%" stop-color="#a4abb8" />
+    </linearGradient>
+    <filter id="meshShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="120" cy="148" rx="66" ry="14" fill="#000000" opacity="0.16" />
+
+  <!-- Base Lip -->
+  <ellipse cx="120" cy="128" rx="55" ry="16" fill="url(#meshBase)" />
+
+  <!-- Main Sleek Dome Body -->
+  <g filter="url(#meshShadow)">
+    <path d="M 65 125 C 65 80, 85 58, 120 58 C 155 58, 175 80, 175 125 C 175 138, 65 138, 65 125 Z" fill="url(#meshGrad)" />
+  </g>
+
+  <!-- Top Subtle Concave Ridge -->
+  <ellipse cx="120" cy="74" rx="34" ry="8" fill="#f8fafc" opacity="0.8" />
+  <ellipse cx="120" cy="75" rx="28" ry="6" fill="#e8ebf0" opacity="0.6" />
+
+  <!-- ACT Ambient Smart LED Status Ring/Dot -->
+  <circle cx="120" cy="124" r="3.5" fill="#25D366" />
+  <circle cx="120" cy="124" r="7" fill="#25D366" opacity="0.3" />
+
+  <!-- Subtle Brand / Mesh Wave indicator -->
+  <path d="M 112 112 Q 120 108 128 112" stroke="#a0a8b5" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4" />
+</svg>
