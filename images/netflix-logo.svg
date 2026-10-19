@@ -1,3 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111 30" width="85" height="23">
-  <path d="M105.062 14.28L111 30c-1.765-.3-3.6-.45-5.46-.45-3.3 0-5.7.75-7.2 2.25l-4.5-12.75v10.5h-5.4V3h5.4v13.5l4.35-13.5h5.55l-4.08 12.78zM78.6 30h-5.4V3h5.4v27zm-11.4 0h-5.4V8.4H56.1V3.9h16.5v4.5h-5.7V30zm-20.1 0h-5.4V3h14.7v4.5H47.1v6.9h8.7v4.5h-8.7V30zm-14.7 0H27V3h5.4v22.5h8.1V30h-8.1zM17.4 30H12l-6.6-18V30H0V3h5.4l6.6 18V3h5.4v27z" fill="#E50914"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118 32" width="88" height="24">
+  <!-- NETFLIX Brand Wordmark in #E50914 -->
+  <g fill="#E50914">
+    <!-- N -->
+    <rect x="0" y="1" width="5" height="30" />
+    <polygon points="0,1 5.5,1 18,31 12.5,31" />
+    <rect x="13" y="1" width="5" height="30" />
+
+    <!-- E -->
+    <path d="M23 1h13v5h-8v8h7.5v5h-7.5v7h8v5H23V1z" />
+
+    <!-- T -->
+    <path d="M39 1h15v5h-5v25h-5V6h-5V1z" />
+
+    <!-- F -->
+    <path d="M57 1h13v5h-8v8h7.5v5h-7.5v12h-5V1z" />
+
+    <!-- L -->
+    <path d="M73 1h5v25h8v5H73V1z" />
+
+    <!-- I -->
+    <rect x="89" y="1" width="5" height="30" />
+
+    <!-- X -->
+    <polygon points="97,1 102.5,1 115,31 109.5,31" />
+    <polygon points="109.5,1 115,1 102.5,31 97,31" />
+  </g>
 </svg>

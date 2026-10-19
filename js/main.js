@@ -190,4 +190,69 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ==========================================================================
+  // ANIMATED RED GLOWING CURSOR FOLLOWER
+  // ==========================================================================
+  const cursorPointer = document.getElementById('cursorPointer');
+
+  if (cursorPointer && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let mouseX = -100;
+    let mouseY = -100;
+    let posX = -100;
+    let posY = -100;
+    let isMoving = false;
+
+    // Track mouse coordinates
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isMoving) {
+        posX = mouseX;
+        posY = mouseY;
+        isMoving = true;
+      }
+
+      cursorPointer.classList.add('visible');
+    });
+
+    // Fade out when cursor exits the browser window
+    document.addEventListener('mouseleave', () => {
+      cursorPointer.classList.remove('visible');
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursorPointer.classList.add('visible');
+    });
+
+    // Snappy, fluid cursor follower without lagging delay
+    function animateCursor() {
+      if (isMoving) {
+        // High responsiveness factor (0.85) for snappy, instant tracking
+        posX += (mouseX - posX) * 0.85;
+        posY += (mouseY - posY) * 0.85;
+
+        // Snap when within 0.2px to completely eliminate micro-lag
+        if (Math.abs(mouseX - posX) < 0.2) posX = mouseX;
+        if (Math.abs(mouseY - posY) < 0.2) posY = mouseY;
+
+        cursorPointer.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+      }
+
+      requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+
+    // Subtle scale / glow pulse when hovering interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, input, select, .plan-card, .feature-pill-card');
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        cursorPointer.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorPointer.classList.remove('hovering');
+      });
+    });
+  }
 });

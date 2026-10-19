@@ -214,41 +214,62 @@ button, input, select {
   fill: var(--primary-red);
 }
 
-/* Center glowing pulse indicator from screenshot 1 */
-.nav-pulse-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.glowing-radar-dot {
-  width: 22px;
-  height: 22px;
-  background-color: rgba(229, 26, 36, 0.2);
+/* ==========================================================================
+   ANIMATED RED GLOWING CURSOR FOLLOWER (Matches Reference Cursor)
+   ========================================================================== */
+.cursor-glow-pointer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 66px;
+  height: 66px;
+  margin-top: -33px;
+  margin-left: -33px;
   border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    rgba(229, 26, 36, 0.28) 0%,
+    rgba(229, 26, 36, 0.14) 35%,
+    rgba(229, 26, 36, 0.04) 60%,
+    rgba(229, 26, 36, 0) 75%
+  );
+  transition: opacity 0.25s ease;
+  will-change: transform;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(229, 26, 36, 0.6);
-  animation: radarGlow 2s infinite ease-in-out;
 }
 
-.glowing-radar-dot::after {
+.cursor-glow-pointer::after {
   content: '';
-  width: 10px;
-  height: 10px;
-  background-color: var(--primary-red);
+  width: 12px;
+  height: 12px;
+  background-color: rgba(229, 26, 36, 0.75);
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(229, 26, 36, 0.6);
 }
 
-@keyframes radarGlow {
-  0%, 100% {
-    transform: scale(0.9);
-    box-shadow: 0 0 10px rgba(229, 26, 36, 0.5);
-  }
-  50% {
-    transform: scale(1.3);
-    box-shadow: 0 0 25px rgba(229, 26, 36, 0.8);
+.cursor-glow-pointer.visible {
+  opacity: 0.75;
+}
+
+.cursor-glow-pointer.hovering {
+  opacity: 0.9;
+  background: radial-gradient(
+    circle,
+    rgba(229, 26, 36, 0.38) 0%,
+    rgba(229, 26, 36, 0.2) 35%,
+    rgba(229, 26, 36, 0.06) 60%,
+    rgba(229, 26, 36, 0) 75%
+  );
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow-pointer {
+    display: none !important;
   }
 }
 
